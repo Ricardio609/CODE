@@ -1,6 +1,4 @@
-#include <vector>
-#include <iostream>
-using namespace std;
+#include "heapSort.h"
 
 void heapify(vector<int>& nums, int n, int i) {
     int l = i * 2 + 1, r = i * 2 + 2;

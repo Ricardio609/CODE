@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-
-
+#include "quickSort.h"
 
 void quickSort(vector<int>& a, int low, int high) {
     if(low >= high)    //递归退出条件
@@ -32,16 +28,16 @@ void quickSort(vector<int>& a, int low, int high) {
     quickSort(a, first + 1, high);
 }
 
-void display(vector<int>& a) {
-    for(auto num : a) {
-        cout<< num<<" ";
-    }
-    cout<<endl;
-}
+// void display(vector<int>& a) {
+//     for(auto num : a) {
+//         cout<< num<<" ";
+//     }
+//     cout<<endl;
+// }
 
-int main() {
-    vector<int> a{10, 8, 4, 6, 9, 10, 123, 6, 2, 14, 3, 8, 5};
-    display(a);
-    quickSort(a, 0, a.size() - 1);
-    display(a);
-}
+// int main() {
+//     vector<int> a{10, 8, 4, 6, 9, 10, 123, 6, 2, 14, 3, 8, 5};
+//     display(a);
+//     quickSort(a, 0, a.size() - 1);
+//     display(a);
+// }

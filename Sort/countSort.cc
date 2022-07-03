@@ -1,11 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "countSort.h"
 
-void countSort(vector<int>& raw, vector<int>& obj) {
+void countSort(vector<int>& raw) {
     //确保待排容器非空
     if (raw.size() == 0)    return;
+    vector<int> obj(raw.size(), 0);
 
     //使用raw的最大值 + 1作为计数容器的大小
     int countLength = (*max_element(begin(raw), end(raw))) + 1;
@@ -27,14 +25,14 @@ void countSort(vector<int>& raw, vector<int>& obj) {
     }
 }
 
-int main() {
-    vector<int> raw = {0, 5, 7,9,6,3,4,5,2,8,6,9,2,1};
-    vector<int> obj(raw.size(), 0);
+// int main() {
+//     vector<int> raw = {0, 5, 7,9,6,3,4,5,2,8,6,9,2,1};
+//     vector<int> obj(raw.size(), 0);
 
-    countSort(raw, obj);
+//     countSort(raw, obj);
 
-    for (int i = 0; i < obj.size(); ++i) {
-        cout << obj[i] << " ";
-    }
-    cout << endl;
-}
+//     for (int i = 0; i < obj.size(); ++i) {
+//         cout << obj[i] << " ";
+//     }
+//     cout << endl;
+// }
