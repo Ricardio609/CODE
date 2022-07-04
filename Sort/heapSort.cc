@@ -1,6 +1,4 @@
-#include <vector>
-#include <iostream>
-using namespace std;
+#include "heapSort.h"
 
 void heapify(vector<int>& nums, int n, int i) {
     int l = i * 2 + 1, r = i * 2 + 2;
@@ -9,7 +7,7 @@ void heapify(vector<int>& nums, int n, int i) {
         max = l;
     if (r < n && nums[r] > nums[max])
         max = r;
-    if (max != l) {
+    if (max != i) {
         swap(nums[max], nums[i]);
         heapify(nums, n, max);
     }
@@ -21,10 +19,10 @@ void heapify_build(vector<int>& nums, int n) {
         heapify(nums, n, i);
     }
 
-    for (int i = 0; i < nums.size(); ++i) {
-        cout << nums[i] << " ";
-    }
-    cout << endl;
+    // for (int i = 0; i < nums.size(); ++i) {
+    //     cout << nums[i] << " ";
+    // }
+    // cout << endl;
 }
 
 void heapify_sort(vector<int>& nums, int n) {

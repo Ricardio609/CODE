@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "shellSort.h"
 
 /* 无论是插入排序还是冒泡排序，如果数组的最大值刚好是在第一位，要将它挪到正确的位置就需要 n - 1 次移动。
  * 也就是说，原数组的一个元素如果距离它正确的位置很远的话，则需要与相邻元素交换很多次才能到达正确的位置，这样是相对比较花时间了
@@ -31,16 +29,16 @@ void shellSort(vector<int>& nums) {
     }
 }
 
-void display(vector<int> nums) {
-    for(auto a : nums) 
-        cout<<a<<" ";
-    cout<<endl;
-}
+// void display(vector<int> nums) {
+//     for(auto a : nums) 
+//         cout<<a<<" ";
+//     cout<<endl;
+// }
 
-int main() {
-    vector<int> a{10, 8, 4, 6, 9, 10, 123, 6, 2, 14, 3, 8, 5};
-    display(a);
-    shellSort(a);
-    display(a);
-    return 0;
-}
+// int main() {
+//     vector<int> a{10, 8, 4, 6, 9, 10, 123, 6, 2, 14, 3, 8, 5};
+//     display(a);
+//     shellSort(a);
+//     display(a);
+//     return 0;
+// }
