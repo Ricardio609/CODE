@@ -11,7 +11,7 @@
 
 int main() {
     srand((unsigned)time(NULL));
-    const int N = 100000;//测试数据个数
+    const int N = 100000;   //测试数据个数
     vector<int> a1(N);
     vector<int> a2(N);
     vector<int> a3(N);
@@ -21,11 +21,10 @@ int main() {
     vector<int> a7(N);
     vector<int> a8(N);
 
-
     //给开辟数组赋值
     for (int i = 0; i < N; ++i)
     {
-        a1[i] = rand();
+        a1[i] = rand() % 1000;
         a2[i] = a1[i];
         a3[i] = a1[i];
         a4[i] = a1[i];
@@ -34,49 +33,55 @@ int main() {
         a7[i] = a1[i];
         a8[i] = a1[i];
     }
+
+    // for (auto a : a1)
+    //     cout << a << " ";
+    // cout << endl;
+
     cout << "开始排序" << endl;
     
     //数组排序并计算时间花费
-    int begin1 = clock();
+    clock_t begin1 = clock();
     insertionSort(a1, N);
-    int end1 = clock();
- 
-    int begin2 = clock();
+    clock_t end1 = clock();
+    cout << "insertionSort: " << end1 - begin1 << endl;
+
+    clock_t begin2 = clock();
     shellSort(a2);
-    int end2 = clock();
- 
-    int begin3 = clock();
+    clock_t end2 = clock();
+    cout << "shellSort: " << end2 - begin2 << endl;
+
+    clock_t begin3 = clock();
     selectionSort_v2(a3);
-    int end3 = clock();
- 
-    int begin4 = clock();
+    clock_t end3 = clock();
+    cout << "selectionSort: " << end3 - begin3 << endl;
+
+    clock_t begin4 = clock();
     heapify_sort(a4, N);
-    int end4 = clock();
- 
-    int begin5 = clock();
+    clock_t end4 = clock();
+    cout << "heapSort: " << end4 - begin4 << endl;
+
+    clock_t begin5 = clock();
     quickSort(a5, 0, N - 1);
-    int end5 = clock();
- 
-    int begin6 = clock();
+    clock_t end5 = clock();
+    cout << "quickSort: " << end5 - begin5 << endl;
+
+    clock_t begin6 = clock();
     mergeSort(a6);
-    int end6 = clock();
- 
-    int begin7 = clock();
+    clock_t end6 = clock();
+    cout << "mergeSort: " <<  end6 - begin6 << endl;
+
+    clock_t begin7 = clock();
     bubbleSort_v3(a7);
-    int end7 = clock();
- 
-    int begin8 = clock();
+    clock_t end7 = clock();
+    cout << "bubbleSort: " << end7 - begin7 << endl;
+
+    clock_t begin8 = clock();
     countSort(a8);
-    int end8 = clock();
-    //展示数据
-    cout << "InsertSort: " << end1 - begin1 << endl;
-    cout << "ShellSort: " << end2 - begin2 << endl;
-    cout << "SelectSort: " << end3 - begin3 << endl;
-    cout << "HeapSort: " << end4 - begin4 << endl;
-    cout << "QuickSort: " << end5 - begin5 << endl;
-    cout << "MergeSort: " <<  end6 - begin6 << endl;
-    cout << "BubbleSort: " << end7 - begin7 << endl;
-    cout << "CountSort: " << end8 - begin8 << endl;
+    clock_t end8 = clock();
+    cout << "countSort: " << end8 - begin8 << endl;
+
+    cout << "结束排序" << endl;
 
     return 0;
 }

@@ -2,27 +2,30 @@
 
 void countSort(vector<int>& raw) {
     //确保待排容器非空
-    if (raw.size() == 0)    return;
-    vector<int> obj(raw.size(), 0);
-
-    //使用raw的最大值 + 1作为计数容器的大小
-    int countLength = (*max_element(begin(raw), end(raw))) + 1;
-    vector<int> count(countLength, 0);
-
-    //统计每个键值出现的次数
-    for (int i = 0; i < raw.size(); ++i) {
-        count[raw[i]]++;
-    }
-
-    //后面的键值出现的位置为前面所有键值出现的次数之和
-    for (int i = 1; i < countLength; ++i) {
-        count[i] += count[i - 1];
+    if (raw.size() <= 1)    return;
+   
+    // 1、计算最大值和最小值
+    int max = *max_element(raw.begin(), raw.end());
+    int min = *min_element(raw.begin(), raw.end());
+    
+    // 2、开辟长度为（max - min + 1）的数组，即为计数排序的空间复杂度
+    vector<int> countArray(max - min + 1, 0);       //数据量过大时，内存不足，无法创建countArray
+    
+    // 3、遍历数组计数
+    int rawLength = raw.size();
+    for (int i = 0; i < rawLength; ++i) {
+        countArray[raw[i] - min]++;
     }
     
-    //将键值放到目标位置
-    for (int i = raw.size(); i > 0; --i) {      //此处逆序是为了保持相同键值的稳定性
-        obj[--count[raw[i - 1]]] = raw[i - 1];
+    // 4、排序
+    vector<int> sortArray;
+    int countArrayLength = countArray.size();
+    for (int i = 0; i < countArrayLength; ++i) {
+        for (int j = 0; j < countArray[i]; ++j) {
+            sortArray.push_back(min + i);
+        }
     }
+    // return sortArray;
 }
 
 // int main() {
